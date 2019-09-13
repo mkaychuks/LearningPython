@@ -8,18 +8,29 @@ greet_user() that prints a personalized greeting to the user.'''
 class User:
     "usesr profile generation"
 
-    def __init__(self, first_name, last_name, age, address):
+    def __init__(self, first_name, last_name, age, address, gender):
         self.first_name = first_name
         self.last_name = last_name
         self.age = age
         self.address = address
+        self.status = gender
 
     def describe_user(self):
-        print(f'This is your profile {self.first_name}')
+        print(f'This is your profile {self.first_name.title()}')
         print(
-            f"Surname: {self.last_name} \nage: {self.age} \naddress: {self.address}"
+            f"Surname: {self.last_name.title()} \nage: {self.age} \naddress: {self.address.title()}"
         )
 
-me = User('achufusi', 'ifeanti', '15', 'chima lane')
+    def greet_user(self):
+        print(
+            f'\nHello {self.status} {self.last_name.title()} {self.first_name.title()}'
+        )
+
+me = User('achufusi', 'ifeanyi', '15', 'chima lane', 'Mr.')
 
 me.describe_user()
+me.greet_user()
+
+
+female = User('Achufusi', 'Jane', '30', 'Lagos', 'Mrs.')
+female.greet_user()
